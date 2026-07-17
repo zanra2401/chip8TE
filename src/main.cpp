@@ -4,9 +4,9 @@
 int main() {
     Chip8TE emulator;
     
-    // Asumsi file ROM logo IBM bernama ibm_logo.ch8 dan diletakkan sejajar dengan eksekusi
+    // Asumsi file ROM logo IBM bernama ibm-logo.ch8 dan diletakkan sejajar dengan eksekusi
     // Sesuaikan path jika file-nya ada di tempat lain.
-    emulator.load_program("ibm_logo.ch8");
+    emulator.load_program("ibm-logo.ch8");
 
     // Main loop emulator
     while (true) {
