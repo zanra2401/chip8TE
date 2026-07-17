@@ -1,8 +1,7 @@
 #pragma once
 #include <cstdint>
 #include <iostream>
-
-
+#include <cstdlib>
 
 class Memory {
   private:
@@ -17,8 +16,9 @@ class Memory {
   
 
   public:
-    uint8_t* get_data_from_memory(uint16_t location);
-    void load_bytes(uint8_t *bytes, int file_size); 
+    uint8_t get_data_from_memory(uint16_t location);
+    uint8_t* get_memory_ptr(uint16_t location);
+    void load_data(uint8_t *bytes, int file_size); 
     void push_to_stack(uint8_t data);
     uint8_t pop_from_stack();
     void clear_memory();

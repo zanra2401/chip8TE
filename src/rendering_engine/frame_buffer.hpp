@@ -36,6 +36,22 @@ class FrameBuffer {
       dirty_map.push_back(pos);
     }
 
+    bool xor_pixel(Vector2d_s pos, ColorRGB_s on_color) {
+        ColorRGB_s black = {0, 0, 0};
+        ColorRGB_s current = frame_buffer[pos.y][pos.x];
+        bool erased = false;
+        
+        if (!(current == black)) { // Turn off
+            frame_buffer[pos.y][pos.x] = black;
+            erased = true;
+        } else { // Turn on
+            frame_buffer[pos.y][pos.x] = on_color;
+        }
+        
+        dirty_map.push_back(pos);
+        return erased;
+    }
+
     ColorRGB_s** get_frame_buffer() {
       return this->frame_buffer;
     }

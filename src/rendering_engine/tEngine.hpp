@@ -2,7 +2,7 @@
 #include "../types/typedef.hpp"
 #include "../types/screen.hpp"
 #include "../types/geometry.hpp"
-#include "./frame_buffer.cpp"
+#include "./frame_buffer.hpp"
 #include <iostream>
 #include <termios.h>
 #include <unistd.h>
@@ -13,16 +13,18 @@ class TEngine {
   private:
     winsize w;
     Vector2d_s screen_size;
+    Vector2d_s scale; // Skala rendering (default 2x1)
     Vector2d_s start_index;
     Vector2d_s center_pos;
-    FrameBuffer frame_buffer;
     void set_center_pos();
     void set_start_index();
     void blit(std::string &buffer_to_blit);
     std::string build_object_into_buffer_string(Object_t &object_to_build);
 
   public:
-    TEngine(Vector2d_s screen_size);
+    FrameBuffer frame_buffer;
+    TEngine(Vector2d_s screen_size, Vector2d_s scale = Vector2d_s(2, 1));
+    void set_scale(Vector2d_s new_scale);
     void clear_screen();
     void print_pixel(Vector2d_s pos, ColorRGB_s color = ColorRGB_s(255,255,255));
     void enter_alt();

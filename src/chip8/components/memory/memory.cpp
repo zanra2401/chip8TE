@@ -5,18 +5,26 @@ Memory::Memory() {
 }
 
 
-uint8_t* Memory::get_data_from_memory(uint16_t location) {
-  if (location < 0x200 || location > 0x400) {
+uint8_t Memory::get_data_from_memory(uint16_t location) {
+  if (location >= 4096) {
     std::cerr << "Memory Overflow Error" << std::endl;
     std::exit(-1);
   }
-  return this->&memory[location];
+  return memory[location];
+}
+
+uint8_t* Memory::get_memory_ptr(uint16_t location) {
+  if (location >= 4096) {
+    std::cerr << "Memory Overflow Error" << std::endl;
+    std::exit(-1);
+  }
+  return &memory[location];
 }
 
 
 void Memory::load_data(uint8_t *bytes, int file_size) {
-  if (file_size > 512) {
-    std::cerr << "Memory Overflow Error" << std::endl;
+  if (file_size > (4096 - 0x200)) {
+    std::cerr << "ROM Size is too large for Memory!" << std::endl;
     std::exit(-1);
   }
 
@@ -96,8 +104,9 @@ void Memory::load_font() {
     // F
     0xF0, 0x80, 0xF0, 0x80, 0x80
   };
-  for (uint8_t i = start_font; i <= end_font; i++) {
-    memory[i] = chip8_fontset[i];
+  
+  for (uint8_t i = 0; i < 80; i++) {
+    memory[start_font + i] = chip8_fontset[i];
   }
 }
 

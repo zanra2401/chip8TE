@@ -1,9 +1,7 @@
-cmake_minimum_required(VERSION 4.3)
+cmake_minimum_required(VERSION 3.10)
 project(chip8TE)
 
+# Kumpulkan semua file C++
+file(GLOB_RECURSE SOURCES "src/*.cpp")
 
-add_executable(${PROJECT_NAME} 
-  src/main.cpp
-  src/rendering_engine/tEngine.cpp
-  src/chip8/program_loader/program_loader.cpp
-)
+add_executable(${PROJECT_NAME} ${SOURCES})
