@@ -1,8 +1,6 @@
 #include "memory.hpp"
 
-Memory::Memory() {
 
-}
 
 
 uint8_t Memory::get_data_from_memory(uint16_t location) {
