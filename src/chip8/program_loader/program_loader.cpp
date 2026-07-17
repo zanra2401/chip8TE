@@ -11,7 +11,17 @@ PLoader::~PLoader() {
 void PLoader::load_from_file(const char *file_name) {
   std::ifstream ifs;  
   ifs.open(file_name, std::ios::binary | std::ios::ate);
+  
+  if (!ifs.is_open()) {
+      std::cerr << "Error: File ROM '" << file_name << "' tidak ditemukan atau tidak bisa dibuka!" << std::endl;
+      std::exit(-1);
+  }
+  
   file_size = ifs.tellg();
+  if (file_size <= 0) {
+      std::cerr << "Error: File ROM kosong atau invalid!" << std::endl;
+      std::exit(-1);
+  }
   ifs.seekg(0);
 
   // ALOKASI MANUAL: Memesan memori di Heap sebesar file_size
