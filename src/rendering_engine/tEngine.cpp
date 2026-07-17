@@ -82,7 +82,7 @@ void TEngine::draw_object(Object_t object_to_draw) {
 }
 
 void TEngine::blit(std::string &buffer) {
-  std::cout << buffer;
+  std::cout << buffer << std::flush;
 }
 
 void TEngine::draw_frame_buffer() {

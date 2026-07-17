@@ -8,6 +8,9 @@ int main() {
     // Sesuaikan path jika file-nya ada di tempat lain.
     emulator.load_program("ibm-logo.ch8");
 
+    // Masuk ke alternate screen buffer terminal agar tidak mengganggu history command
+    emulator.graphic.engine.enter_alt();
+
     // Main loop emulator
     while (true) {
         emulator.emulate_cycle();
