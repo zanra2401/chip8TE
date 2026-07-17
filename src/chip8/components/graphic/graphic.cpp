@@ -1,8 +1,7 @@
 #include "./graphic.hpp" 
 
 
-Graphic::Graphic() {
-  engine = TEngine({64, 32});
+Graphic::Graphic() : engine(Vector2d_s(64, 32)) {
 }
 
 void Graphic::disp_clear() {
