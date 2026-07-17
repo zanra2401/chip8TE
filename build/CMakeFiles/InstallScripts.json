@@ -1,0 +1,7 @@
+{
+	"InstallScripts" : 
+	[
+		"/home/zanuar/project/chip8TE/build/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

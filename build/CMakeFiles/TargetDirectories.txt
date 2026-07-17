@@ -1,0 +1,3 @@
+/home/zanuar/project/chip8TE/build/CMakeFiles/chip8TE.dir
+/home/zanuar/project/chip8TE/build/CMakeFiles/edit_cache.dir
+/home/zanuar/project/chip8TE/build/CMakeFiles/rebuild_cache.dir

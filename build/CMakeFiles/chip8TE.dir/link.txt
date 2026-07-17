@@ -1,0 +1,1 @@
+/usr/bin/c++ -O3 -DNDEBUG -Wl,--dependency-file=CMakeFiles/chip8TE.dir/link.d CMakeFiles/chip8TE.dir/src/main.cpp.o CMakeFiles/chip8TE.dir/src/rendering_engine/tEngine.cpp.o CMakeFiles/chip8TE.dir/src/chip8/program_loader/program_loader.cpp.o -o chip8TE
